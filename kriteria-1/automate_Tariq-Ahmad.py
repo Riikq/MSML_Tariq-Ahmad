@@ -1,9 +1,9 @@
+import pandas as pd
 from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from joblib import dump
 from sklearn.preprocessing import OneHotEncoder, MinMaxScaler
 from sklearn.model_selection import train_test_split
-import pandas as pd
 
 
 def preprocess_data(data, target_column, save_path, file_path):
@@ -21,7 +21,6 @@ def preprocess_data(data, target_column, save_path, file_path):
     if target_column in categorical_features:
         categorical_features.remove(target_column)
 
-    # Pipeline
     numeric_transformer = Pipeline(steps=[("scaler", MinMaxScaler())])
 
     categorical_transformer = Pipeline(steps=[("encoder", OneHotEncoder())])
