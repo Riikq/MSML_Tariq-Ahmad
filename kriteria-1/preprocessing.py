@@ -1,10 +1,10 @@
 import os
 import pandas as pd
-from preprocessing/automate_TariqAhmad import preprocess_data
+from preprocessing.automate_TariqAhmad import preprocess_data
 
 
 if __name__ == "__main__":
-    raw_path = "./pilgrimage_raw.csv"
+    raw_path = "pilgrimage_raw.csv"
     save_pipeline_path = "preprocessing/preprocessor.joblib"
     save_header_path = "preprocessing/pilgrimage_preprocessing/columns.csv"
     save_dataset_path = "preprocessing/pilgrimage_preprocessing"
@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
     X_train, X_test, y_train, y_test = preprocess_data(
         data=df,
-        target_column="charges",
+        target_column="Economic_Impact_USD",
         save_path=save_pipeline_path,
         file_path=save_header_path,
     )
