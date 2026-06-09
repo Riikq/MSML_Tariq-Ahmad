@@ -32,3 +32,5 @@ with mlflow.start_run(run_name="manual_run"):
 
     print(f"Mean Squared Error: {mse}")
     print(f"R^2 Score: {r2}")
+
+mlflow.sklearn.save_model(model, "final_model")
