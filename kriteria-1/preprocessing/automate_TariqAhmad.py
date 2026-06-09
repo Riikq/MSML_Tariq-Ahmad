@@ -23,7 +23,9 @@ def preprocess_data(data, target_column, save_path, file_path):
 
     numeric_transformer = Pipeline(steps=[("scaler", MinMaxScaler())])
 
-    categorical_transformer = Pipeline(steps=[("encoder", OneHotEncoder())])
+    categorical_transformer = Pipeline(
+        steps=[("encoder", OneHotEncoder(sparse_output=False))]
+    )
 
     preprocessor = ColumnTransformer(
         transformers=[
